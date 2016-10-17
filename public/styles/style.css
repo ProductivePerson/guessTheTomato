@@ -1,0 +1,129 @@
+.posterPNG {
+  height: 95%;
+  width: 95%;
+  border: 1px;
+  border-style: ridge;
+}
+
+.inlineDisplay {
+  display: inline-block;
+}
+
+.searchImage {
+  width: 80%;
+  display: inline-block;
+  float: left;
+}
+
+.searchTitle {
+  display: inline-block;
+  float: left;
+}
+
+.reviewImage {
+  float: left;
+  width: 20%;
+  height: 20%;
+}
+
+.percentage {
+  font-size: 44px;
+  height: 1px;
+}
+.reviewerCategory {
+  font-size: 22px;
+  height: 1px;
+}
+
+.historyNode {
+  border-style: outset;
+  text-align: center;
+}
+
+.historyIcon {
+  width: 15%;
+  height: 15%;
+  float: left;
+}
+
+.historyDetails {
+  display: inline-block
+  float: left;
+}
+
+#searchWindow {
+  margin-left: 500px;
+}
+#searchResults {
+  list-style: none;
+  padding: 0;
+}
+
+#searchOptions {
+  border-style: inset;
+  overflow: scroll;
+  height: 500px;
+  width: 160px;
+}
+#mainWindow{
+  height: 500px;
+  width: 1200px;
+}
+
+#movieWindow {
+  width: 500px;
+  height: 500px;
+  border-style: inset;
+  border-radius: 10px;
+  margin-top: 20px;
+  display: inline-block;
+  float: left;
+  text-align: center;
+}
+
+#guessWindow {
+  border-style:inset;
+  margin-top: 20px;
+  margin-left: 10px;
+  width: 330px;
+  float:left;
+  display: inline-block;
+  text-align: center;
+}
+
+#guessForm {
+  text-align: center;
+}
+
+#historyWindow {
+  display: inline-block;
+  border-style: inset;
+  border-radius: 10px;
+  margin-left: 20px;
+  margin-top: 20px;
+  float:left;
+  height:500px;
+  overflow: scroll;
+}
+
+#poster{
+  display: inline-block;
+  float:left;
+  width: 300px;
+}
+
+#rottenInfo {
+  border-style: inset;
+  border-radius: 10px;
+  display: inline-block;
+  height: 350px;
+  width: 330px;
+}
+
+#userFaceAndRating {
+  border-top-style: inset;
+}
+
+#aside {
+  float: right;
+}

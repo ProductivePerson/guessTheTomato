@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en-US" ng-app="guessTomato">
+<head>
+  <link rel="stylesheet" type="text/css" href="public/styles/style.css"/>
+</head>
+<body ng-app="guessTomato">
+  <div ng-controller='movieSearch'>
+    <div id="searchWindow">
+      <form>
+        <input id="search" type="text" name="search" ng-model='query'>
+        <input type="submit" value="Get Movie" ng-click="searchMovie()">
+      </form>
+      <div class="panel panel-default" id="searchOptions" ng-show='searchOn'>
+        <h3> What movie? </h3>
+        <div ng-click='getMovie(movie.imdbID)' ng-repeat="movie in searches.results">
+          <div border-style='inset'>
+            <img class='searchImage' src={{movie.Poster}}>
+            <h5 class='searchTitle'>{{movie.Title}}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="mainWindow" ng-controller='gameWindow' ng-show="mov.gameOn">
+    <div id='movieWindow'>
+      <h4 id="movTitle">{{mov.Title}}</h4>
+      <div id="movCredits">Directed by {{mov.Director}} in {{mov.Year}}</div>
+      <div id=poster>
+        <img src={{mov.Poster}} class="posterPNG">
+      </div>
+      <div id="description" float: "right">
+        {{mov.Plot}}
+      </div>
+    </div>
+    <div id="guessWindow">
+      <p class="message">{{userMessage}}&trade;</p>
+
+      <form id="newSearch" ng-show="mov.gameOver">
+        <!-- <form ng-controller='movieSearch'>
+          <input id="search" type="text" name="search" ng-model='query'>
+          <input type="submit" value="New Search" ng-click="getMovie()">
+        </form> -->
+        <input type="submit" value="New Search" ng-click="newSearch()">
+      </form>
+
+      <form id="guessForm" ng-show="!mov.gameOver">
+        <input id="guess" type="number" placeholder="guess a percentage" ng-model='guess' required>
+        within:
+        <select id="rangeSelect" ng-model='range' required>
+          <option value="5" selected>5%</option>
+          <option value="10">10%</option>
+          <option value="15">15%</option>
+          <option value="20">20%</option>
+        </select><br>
+        of the tomatoMeter.
+        <input type="submit" value="GuessMovie!" ng-click="guessMovie()">
+      </form>
+      <div id="rottenInfo" ng-show="mov.gameOver">
+        <p class="reviewerCategory">Critical Response:</p>
+        <div id='tomatoAndRating' border-style="dotted">
+          <img src={{mov.Tomato}} class="inlineDisplay, reviewImage">
+          <p class="inlineDisplay, percentage">{{mov.tomatoMeter}}%</p>
+        </div>
+        <p>Critical Concensus: {{mov.tomatoConsensus}}</p>
+        <div id='userFaceAndRating'>
+          <p class="reviewerCategory"> User Response:</p>
+          <img src={{mov.userTomato}} class="inlineDisplay, reviewImage">
+          <p class="inlineDisplay, percentage">{{mov.tomatoUserRating}} out of 5</p>
+        </div>
+      </div>
+    </div>
+    <div id="historyWindow" ng-show="hist.guesses.length > 0">
+      <ul style="list-style: none; padding: 0;">
+        <li class = 'historyNode' ng-repeat="node in hist.guesses">
+          <div>
+            <img src={{node.Tomato}} class="historyIcon">
+          </div>
+          <div class=historyDetails>
+            <p>{{node.Title}}<br>{{node.tomatoMeter}}%</p>
+          </div>
+          <p>You {{node.Message}}</p>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <script src="/modules/angular/angular.min.js"></script>
+  <script src="/modules/angular-ui-bootstrap/dist/ui-bootstrap-tpls.js"></script>
+  <script src="/modules/angular-animate/angular-animate.min.js"></script>
+  <script src="/public/app/guessTomato.js"></script>
+</body>
+
+</html>
