@@ -10,5 +10,5 @@ app.get('/', function(req, res) {
   res.sendFile(__dirname + '/public/index.html');
 });
 
-console.log('Shortly is listening on', process.env.PORT || "3000");
+console.log('App is listening on', process.env.PORT || "3000");
 app.listen(process.env.PORT || 3000);
